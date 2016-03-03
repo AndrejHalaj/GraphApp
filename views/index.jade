@@ -3,3 +3,10 @@ extends layout
 block content
     div(class='jumbotron')
         h1 Graph application
+
+    div(ng-controller='GrapherController', method='get')
+        form(action='/algorithms')
+            input(type='file', accept='.txt')
+            select(ng-model='selected')
+                option(ng-repeat='algorithm in getAlgorithms()', value='{{algorithm}}') {{algorithm}}
+            input(type='submit' value='Submit')
